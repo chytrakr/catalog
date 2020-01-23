@@ -43,7 +43,7 @@ const schema = new config.mongoose.Schema({
     default: true
   }
 }, {
-  strict: false
+  strict: true
 });
 
 schema.plugin(config.paginate);
