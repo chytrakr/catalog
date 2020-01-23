@@ -46,3 +46,9 @@ quantity*
 Products list api: <base route>/api/v1/products
 Method: GET
 Search option [key: search]: productName and category
+
+******************************************************************
+
+## categories list response
+
+![Categories List](https://github.com/chytrakr/catalog/blob/master/static/categories_list.png)
