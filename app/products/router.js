@@ -21,9 +21,8 @@ router.get('/', function (req, res) {
     ]
   }
   collection.paginate(query, options, function(err, result) {
+    if (err) return res.status(500).send("Something went wrong, please try after sometime");
     res.status(200).send(result);
-  }, fail => {
-    res.status(500).send("Something went wrong, please try after sometime");
   });
 });
 

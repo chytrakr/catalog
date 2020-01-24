@@ -19,6 +19,7 @@ router.get('/', function (req, res) {
     query.category = { $regex: `${req.query.search}.*`, $options: "i" };
   }
   collection.paginate(query, options, function(err, results) {
+    if (err) return res.status(500).send("Something went wrong, please try after sometime");
     async function loop() {
       for (let resp of results.docs) {
         resp.productsCount = await productsFunction.getProductsCount(resp.catId);
@@ -26,8 +27,6 @@ router.get('/', function (req, res) {
       res.status(200).send(results);
     }
     loop();
-  }, fail => {
-    res.status(500).send("Something went wrong, please try after sometime");
   });
 });
 
